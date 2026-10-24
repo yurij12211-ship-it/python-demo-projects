@@ -1,4 +1,4 @@
-# Python demo projects: Telegram bots, Web3, web scraper, landing page
+# Demo projects: Telegram bots, Web3, automation (Python and TypeScript)
 
 Small, complete projects I use to show how I work. Each one runs on its own.
 
@@ -6,6 +6,7 @@ Small, complete projects I use to show how I work. Each one runs on its own.
 | --- | --- | --- |
 | [bot/](bot/) | Telegram booking bot for a barbershop or salon: service, date, free time slot, phone via one button, admin notification, `/today` for the owner. Double booking is impossible. | Python, aiogram 3, SQLite |
 | [crypto-bot/](crypto-bot/) | Crypto Alert Bot for Telegram: price alerts, wallet balances and movement notifications read straight from the blockchain (Ethereum, BNB Chain, Base). 11 automated tests. | Python, aiogram 3, web3.py, CoinGecko API, SQLite |
+| [lead-notifier-ts/](lead-notifier-ts/) | Website leads to the team's Telegram chat: webhook API with validation and duplicate protection, status buttons (New, In progress, Done, Spam), `/stats`. Leads are never lost if Telegram is down. 8 automated tests. | TypeScript, Node.js, Fastify, grammY, zod, SQLite, Vitest |
 | [parser/](parser/) | Scrapes a product catalog (books.toscrape.com, a public sandbox for scraping practice), walks all 50 pages and exports 1000 items to a formatted Excel file. | Python, requests, BeautifulSoup, openpyxl |
 | [landing/](landing/) | One-page cafe website with a table booking form. Mobile-friendly, no frameworks. | HTML, CSS |
 
@@ -22,6 +23,14 @@ BOT_TOKEN=<token from @BotFather> ADMIN_ID=<your telegram id> python bot/bot.py
 pip install -r crypto-bot/requirements.txt
 cd crypto-bot && cp .env.example .env   # BOT_TOKEN from @BotFather
 python bot.py
+```
+
+## Run the lead notifier (TypeScript)
+
+```bash
+cd lead-notifier-ts && npm install
+cp .env.example .env   # BOT_TOKEN, CHAT_ID, WEBHOOK_SECRET
+npm start               # npm test runs the tests
 ```
 
 ## Run the parser
